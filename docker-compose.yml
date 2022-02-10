@@ -1,0 +1,16 @@
+version: '3'
+ 
+services:
+  app:
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+
+  app2:
+    image: nginx:stable-alpine
+    ports:
+      - 81:80
+    volumes:
+      - ./website2:/usr/share/nginx/html:ro
